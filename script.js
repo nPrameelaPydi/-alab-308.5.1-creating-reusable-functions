@@ -106,6 +106,38 @@ let avgOfAges = sum1 / arr.length;
 console.log("Average of ages: " + avgOfAges);
 
 
+//**********Part 3************* */
+console.log(`**********Part 3***************`)
+
+//Take an object and increment its age field.
+//Take an object, make a copy, and increment the age field of the copy. Return the copy.
+
+let object1 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
+
+function updateAgeByRef(obj) {
+    if (obj.hasOwnProperty("age")) {
+        obj.age = obj.age + 1;
+    } else {
+        obj.age = 0;
+    }
+    return obj;
+}
+console.log(updateAgeByRef(object1));
+console.log(object1);
+
+
+function updateAgeByValue(obj) {
+    let object2 = { ...obj };
+    if (object2.hasOwnProperty("age")) {
+        object2.age = object2.age + 1;
+    } else {
+        object2.age = 0;
+    }
+    return object2;
+}
+console.log(updateAgeByValue(object1));
+console.log(object1);
+
 
 
 
