@@ -113,7 +113,7 @@ console.log(`**********Part 3***************`)
 //Take an object, make a copy, and increment the age field of the copy. Return the copy.
 
 let object1 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
-
+//
 function updateAgeByRef(obj) {
     if (obj.hasOwnProperty("age")) {
         obj.age = obj.age + 1;
@@ -123,6 +123,7 @@ function updateAgeByRef(obj) {
     obj.updated_at = new Date();
     return obj;
 }
+console.log("Calling the updateAgeByRef function. This updates the age and adds the updated_at property. The object is passed by reference");
 console.log(updateAgeByRef(object1));
 console.log(object1);
 
@@ -136,11 +137,17 @@ function updateAgeByValue(obj) {
     }
     return object2;
 }
+console.log(`Updating the object's age and setting the updated_at property. The object is passed by value.`);
 console.log(updateAgeByValue(object1));
 console.log(object1);
 
 let object3 = updateAgeByValue(object1);
-object3.updated_at.setTime()
+const someDay = new Date("1999-07-01");
+
+object3.updated_at.setTime(someDay.getTime());
+console.log("Updating Date object in copy of object results in updation of Date field in original object as well.");
+console.log(object1);
+console.log(object3)
 
 
 
