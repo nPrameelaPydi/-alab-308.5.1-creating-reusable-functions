@@ -57,3 +57,55 @@ function printNumbers(n, min = 2) {
 console.log("5. Numbers between 1 and n: ");
 printNumbers(6);
 
+
+//**********Part 2************* */
+console.log(`**********Part 2***************`)
+//Use callback functions alongside Array methods to accomplish the following:
+//Sort the array by age.
+let arr = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+{ id: "48", name: "Barry", occupation: "Runner", age: "25" },
+{ id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+{ id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+{ id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+function sortAge(obj1, obj2) {
+    return obj1.age - obj2.age;
+}
+console.log(`Sorted array according to age:`)
+console.log(arr.sort(sortAge));
+//console.log(arr);
+
+//Filter the array to remove entries with an age greater than 50.
+function filterAge(obj) {
+    return obj.age <= 50;
+}
+console.log(`Removed entries with age greater than 50:`)
+console.log(arr.filter(filterAge));
+
+//Map the array to change the “occupation” key to “job” and increment every age by 1
+function modifyKeyAndIncrementAge(obj) {
+    let newObj = { ...obj };
+    newObj['job'] = newObj['occupation'];
+    delete newObj['occupation'];
+    newObj.age = parseInt(newObj.age) + 1;
+    return newObj;
+}
+console.log(arr.map(modifyKeyAndIncrementAge));
+//console.log(arr);
+
+//Use the reduce method to calculate the sum of the ages.
+//Then use the result to calculate the average age.
+function sumOfAges(sum, obj) {
+    return sum + parseInt(obj.age);
+}
+console.log("Sum of ages using reduce(): " + arr.reduce(sumOfAges, 0));
+
+let sum1 = arr.reduce(sumOfAges, 0);
+
+let avgOfAges = sum1 / arr.length;
+console.log("Average of ages: " + avgOfAges);
+
+
+
+
+
