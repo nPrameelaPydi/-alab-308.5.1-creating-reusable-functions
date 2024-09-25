@@ -120,12 +120,13 @@ function updateAgeByRef(obj) {
     } else {
         obj.age = 0;
     }
+    obj.updated_at = new Date();
     return obj;
 }
 console.log(updateAgeByRef(object1));
 console.log(object1);
 
-
+let object2 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
 function updateAgeByValue(obj) {
     let object2 = { ...obj };
     if (object2.hasOwnProperty("age")) {
@@ -137,6 +138,11 @@ function updateAgeByValue(obj) {
 }
 console.log(updateAgeByValue(object1));
 console.log(object1);
+
+let object3 = updateAgeByValue(object1);
+object3.updated_at.setTime()
+
+
 
 
 
