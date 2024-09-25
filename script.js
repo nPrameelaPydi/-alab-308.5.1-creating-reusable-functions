@@ -47,4 +47,13 @@ console.log(stringsLongerThan(['bruce', 'occupation', 'runner', 'bilbo'], 5));
 //console.log("4. Strings longer than given number: " + stringsLongerThan(['bruce', 'occupation', 'runner', 'bilbo'], 5));
 
 //Take a number, n, and print every number between 1 and n without using loops. Use recursion.
+function printNumbers(n, min = 2) {
+    if (min >= n) {
+        return;
+    }
+    console.log(min);
+    printNumbers(n, min + 1);
+}
+console.log("5. Numbers between 1 and n: ");
+printNumbers(6);
 
