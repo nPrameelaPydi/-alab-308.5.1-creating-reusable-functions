@@ -58,6 +58,8 @@ console.log("5. Numbers between 1 and n: ");
 printNumbers(6);
 
 
+
+//console.log(`                                                   `);
 //**********Part 2************* */
 console.log(`**********Part 2***************`)
 //Use callback functions alongside Array methods to accomplish the following:
@@ -90,6 +92,7 @@ function modifyKeyAndIncrementAge(obj) {
     newObj.age = parseInt(newObj.age) + 1;
     return newObj;
 }
+console.log(`Modified occupation key to job and incremented age by 1:`)
 console.log(arr.map(modifyKeyAndIncrementAge));
 //console.log(arr);
 
@@ -106,6 +109,10 @@ let avgOfAges = sum1 / arr.length;
 console.log("Average of ages: " + avgOfAges);
 
 
+
+
+
+console.log(`                                                   `);
 //**********Part 3************* */
 console.log(`**********Part 3***************`)
 
@@ -113,8 +120,8 @@ console.log(`**********Part 3***************`)
 //Take an object, make a copy, and increment the age field of the copy. Return the copy.
 
 let object1 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
-//
-function updateAgeByRef(obj) {
+
+function updateAgeAndAddDate(obj) {
     if (obj.hasOwnProperty("age")) {
         obj.age = obj.age + 1;
     } else {
@@ -123,30 +130,35 @@ function updateAgeByRef(obj) {
     obj.updated_at = new Date();
     return obj;
 }
-console.log("Calling the updateAgeByRef function. This updates the age and adds the updated_at property. The object is passed by reference");
-console.log(updateAgeByRef(object1));
+console.log(`1. Checking for age property, if exists incrementing age by 1, else adding age property and setting it to 0. 
+2. Adding the 'updated_at' property with value equal to current date.`);
+console.log(updateAgeAndAddDate(object1));
 console.log(object1);
 
-let object2 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
-function updateAgeByValue(obj) {
-    let object2 = { ...obj };
-    if (object2.hasOwnProperty("age")) {
-        object2.age = object2.age + 1;
+
+let object2 = { id: "57", name: "Bob", occupation: "Fry Cook", age: 19 };
+function copyObjAndIncrementAge(obj) {
+    let copyObj = obj;
+    if (copyObj.hasOwnProperty("age")) {
+        copyObj.age = copyObj.age + 1;
     } else {
-        object2.age = 0;
+        copyObj.age = 0;
     }
-    return object2;
+    copyObj.updated_at = new Date();
+    return copyObj;
 }
-console.log(`Updating the object's age and setting the updated_at property. The object is passed by value.`);
-console.log(updateAgeByValue(object1));
-console.log(object1);
+console.log(`1. Making a copy of an existing object
+2. Incrementing age field of the copy if exists, else sets age to 0`);
+console.log(copyObjAndIncrementAge(object2));
+console.log(object2);
+console.log(`Because its pass by reference, the changes made in the copy reflects in original object as well`)
 
-let object3 = updateAgeByValue(object1);
+let object3 = copyObjAndIncrementAge(object2);
 const someDay = new Date("1999-07-01");
-
+//setting time to copy
 object3.updated_at.setTime(someDay.getTime());
 console.log("Updating Date object in copy of object results in updation of Date field in original object as well.");
-console.log(object1);
+console.log(object2);
 console.log(object3)
 
 
