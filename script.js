@@ -120,7 +120,6 @@ console.log(`**********Part 3***************`)
 //Take an object, make a copy, and increment the age field of the copy. Return the copy.
 
 let object1 = { id: "48", name: "Barry", occupation: "Runner", age: 25 };
-
 function updateAgeAndAddDate(obj) {
     if (obj.hasOwnProperty("age")) {
         obj.age = obj.age + 1;
@@ -148,7 +147,7 @@ function copyObjAndIncrementAge(obj) {
     return copyObj;
 }
 console.log(`1. Making a copy of an existing object
-2. Incrementing age field of the copy if exists, else sets age to 0`);
+2. Incrementing age field of the copy if exists, else setting age to 0`);
 console.log(copyObjAndIncrementAge(object2));
 console.log(object2);
 console.log(`Because its pass by reference, the changes made in the copy reflects in original object as well`)
